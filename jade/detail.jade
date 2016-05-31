@@ -19,7 +19,7 @@
 			label Languages
 			.row
 				.chip(ng-repeat='language in selectedProduct.languages', ng-click='searchFor(language)') {{language}}
-					img(src='./chips/{{language}}.jpg')
+					img(src='./chips/{{language | lowercase}}.jpg')
 
 		div(ng-show='products.selected.sdks')
 			label SDKs
