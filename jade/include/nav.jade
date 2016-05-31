@@ -1,0 +1,27 @@
+mixin items
+	li: a.modal-trigger(href='#filter') Filter
+		i.material-icons.left toc
+	li: a.modal-trigger(href='#calculate') Calculate
+		i.material-icons.left attach_money
+	li: a.modal-trigger(href='#compare') Compare
+		i.material-icons.left compare_arrows
+mixin search
+	input(type='search' ng-model='search')
+	label(for='search'): i.material-icons search
+	i.material-icons(ng-click='search=""') close
+
+nav: .nav-wrapper.container
+	a.brand-logo(href='./index.html')
+		img(src='./img/baasket.svg', height='100%', style='padding: 8px')
+
+	a.button-collapse(href='#', data-activates='sidenav'): i.material-icons menu
+
+	ul.right.hide-on-med-and-down
+		+items
+	ul#sidenav.side-nav
+		.input-field.teal.accent-3(style='height:64px')
+			+search
+		+items
+
+	#search.input-field.right.hide-on-med-and-down
+		+search

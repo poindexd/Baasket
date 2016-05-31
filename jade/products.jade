@@ -1,0 +1,5 @@
+.row
+	.col.s6.m4.l3(ng-repeat='product in products | filter:search | checklistFilter:checklist | orderBy:"name"')
+		.card.hoverable(ng-click='showDetail(product)')
+			.card-image: img.responsive-img(src='{{product.header.resize_url}}')
+			.card.hoverable.cost(ng-show='cost(product)') {{cost(product) | currency:"$":0}}

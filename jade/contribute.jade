@@ -1,0 +1,38 @@
+html
+	head
+		title Baasket
+		link(rel='stylesheet', href='./css/materialize.css')
+		link(rel='stylesheet', href='./css/main.css')
+
+	body(ng-app='baasket', ng-controller='controller')
+		header
+
+		main.gradient
+			.row(style='width:100%;')
+				.container.large.center
+					.row: .col.s12.l4.offset-l4
+						img.responsive-img(src='./img/Baasket.svg', width='100%')
+
+			.container.center.white-text
+				p.flow-text Baasket is an open-source collection built to help developers choose the services they use. Baasket relies on community contributions to add new products and stay up to date.
+
+				.row: .col.s12.l4.offset-l4(ng-cloak)
+						p(style='border-left: 5px solid white')
+							p Send a direct message with your name, email, and affiliation to @dan on our 
+								a(href='http://baasket.herokuapp.com') Slack 
+								| to get a login
+							p
+								input(type='checkbox', id='agree', ng-model='agree')
+								label(for='agree').white-text I have read and agree to the 
+								a(href='#')  terms
+						a.col.s12.btn-large.red.lighten-4(ng-show='!agree', href='#') CMS
+						a.col.s12.btn-large(ng-show='agree', href='http://baasket.webhook.org/cms', target='blank') CMS
+
+		include include/footer.jade
+		
+		script(src='https://code.jquery.com/jquery-2.2.4.min.js')
+		script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js')
+		script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js')
+		script(src='https://cdn.firebase.com/js/client/2.4.2/firebase.js')
+		script(src='./js/checklist-model.js')
+		script(src='./js/app.js')

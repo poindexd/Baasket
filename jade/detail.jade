@@ -1,0 +1,33 @@
+#detail.modal(ng-cloak)
+	.right
+			i.grey-text.text-lighten-2.modal-close.material-icons.medium close
+
+	.modal-content
+		img(src='{{selectedProduct.header.resize_url}}')
+		
+		p 
+			a(href='{{selectedProduct.website}}', target='blank'){{selectedProduct.name}} 
+			| by 
+			a(href='{{selectedProduct.company_website}}', target='blank') {{selectedProduct.company}}
+			span.right.grey-text Last Updated: {{selectedProduct.last_updated | date:'longDate'}}
+
+		blockquote
+			p {{selectedProduct.notes}}
+
+
+		div(ng-show='selectedProduct.languages && selectedProduct.languages.length > 0')
+			label Languages
+			.row
+				.chip(ng-repeat='language in selectedProduct.languages', ng-click='searchFor(language)') {{language}}
+					img(src='./chips/{{language}}.jpg')
+
+		div(ng-show='products.selected.sdks')
+			label SDKs
+				.row
+					.chip(ng-repeat='sdk in products.selected.sdks', ng-click='searchFor(sdk)') {{sdk}}
+						img(src='./chips/{{sdk}}.jpg')
+
+		div(ng-show='selectedProduct.features')
+			label Features
+			.row
+				.chip(ng-repeat='feature in selectedProduct.features', ng-click='searchFor(feature)') {{feature}}

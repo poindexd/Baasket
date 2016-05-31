@@ -1,0 +1,31 @@
+html
+	head
+		title Baasket
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css')
+		link(rel='stylesheet', href='./css/main.css')
+
+	body
+		header
+
+		main.gradient.white-text
+			.row(style='width:100%;')
+				.container.large.center
+					.row: .col.s12.l4.offset-l4
+						img.responsive-img(src='./img/Baasket.svg', width='100%')
+
+			.container.center.white-text
+				p.flow-text Baasket is an open-source collection built to help developers choose the services they use. Our cost estimator is intended to save you time and the stress caused by researching what backend is best for your app.
+
+			.container.large.center
+				p.flow-text Developer
+				
+				div(style='width:400px; max-width:100%; margin: 0 auto')
+					.chip.large.z-depth-1
+						img(src='http://danpoindexter.com/face.jpg')
+						h5 Dan Poindexter
+						a.fa.fa-user.fa-2x(href='http://danpoindexter.com', target='blank')
+						a.fa.fa-twitter.fa-2x(href='http://twitter.com/dan_poindexter', target='blank')
+						a.fa.fa-github.fa-2x(href='http://github.com/poindexd')
+
+		include include/footer.jade

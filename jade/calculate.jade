@@ -1,0 +1,8 @@
+#calculate.modal.bottom-sheet
+
+	i.modal-close.material-icons.medium close
+
+	.container: .modal-content: .row
+		.col.s12.l6(ng-repeat='(key, filter) in filters')
+			h6 {{filter.text}}: {{values[key]}}
+			p.range-field: slider(min='{{filter.min}}', max='{{filter.max}}', value='0', ng-model='values[key]')

@@ -1,0 +1,22 @@
+#filter.modal.bottom-sheet
+
+	i.modal-close.material-icons.medium close
+
+	.container
+		.modal-content: .row
+			.col.s6.l3
+				h6 Languages
+				div(ng-repeat='language in languages')
+					input(type='checkbox', id='{{language}}', checklist-model='checklist', checklist-value='language', checked)
+					label(for='{{language}}') {{language}}
+			.col.s6.l3
+				h6 Companies
+				div(ng-repeat='company in companies')
+					input(type='checkbox', id='{{company}}', checklist-model='checklist', checklist-value='company', checked)
+					label(for='{{company}}') {{company}}
+			.col.s12.l6
+				h6 Features
+				div(ng-repeat='feature in features')
+					.col.s6.l4(style='overflow:hidden;text-overflow:ellipsis')
+						input(type='checkbox', id='{{feature}}', checklist-model='checklist', checklist-value='feature' checked)
+						label(for='{{feature}}') {{feature}}

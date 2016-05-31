@@ -1,0 +1,36 @@
+#compare.modal.bottom-sheet(ng-cloak, style='height:100%')
+		
+	i.modal-close.material-icons.medium close
+
+	.container: .modal-content
+		.row.valign-wrapper
+			.col.s6: h5 Product
+			.col.s3
+				select(name='compareA', ng-options='product.name for product in products', ng-model='compareA')
+					option(value='', disabled) Select Product
+			.col.s3
+				select(name='compareB', ng-options='product.name for product in products', ng-model='compareB')
+					option(value='', disabled) Select Product
+		.row.valign-wrapper
+			.col.s6: h5 Plan
+			.col.s3
+				select(name='planA', ng-options='plan.name for plan in compareA.plans', ng-model='planA')
+					option(value='', disabled) Select Plan
+			.col.s3
+				select(name='planB', ng-options='plan.name for plan in compareB.plans', ng-model='planB')
+					option(value='', disabled) Select Plan
+
+				//select.browser-default(name='compareA', ng-model='planA')
+					option(ng-repeat='plan in compareA.plans') {{plan.name}}
+			//.col.s4
+		.divider
+
+		.row(ng-if='planA || planB')
+			.col.s6: p Monthly cost
+			.col.s3: p.center {{planA.cost | currency:"$":0}}
+			.col.s3: p.center {{planB.cost | currency:"$":0}}
+
+		.row(ng-repeat='(key,filter) in filters', ng-if='planA[key]!=null || planB[key]!=null', ng-class-odd='"theme_blue"')
+			.col.s6: p {{filter.text}}
+			.col.s3: p.center {{planA[key]}} + {{planA[key+'_over'] | currency}}/GB
+			.col.s3: p.center {{planB[key]}} + {{planB[key+'_over'] | currency}}/GB
