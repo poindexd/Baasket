@@ -25,7 +25,7 @@
 			label SDKs
 				.row
 					.chip(ng-repeat='sdk in products.selected.sdks', ng-click='searchFor(sdk)') {{sdk}}
-						img(src='./chips/{{sdk}}.jpg')
+						img(src='./chips/{{sdk | lowercase}}.jpg')
 
 		div(ng-show='selectedProduct.features')
 			label Features
