@@ -1,0 +1,3 @@
+<div id="pricing" class="modal bottom-sheet"><div class="right"><i class="grey-text text-lighten-2 modal-close material-icons medium">close</i></div><div class="container"><div class="modal-content"><div class="row"><div ng-repeat="(key, filter) in filters" class="col s12 l6"><h6>{{filter.text}}: {{values[key]}}</h6><p class="range-field"><slider min="{{filter.min}}" max="{{filter.max}}" value="0" ng-model="values[key]"></slider></p></div></div></div></div>{{values[0] | bytes}}
+{{values[1] | bytes}}
+{{values[2] | bytes:0}}</div>
